@@ -20,3 +20,6 @@ div footer #SNS {float:right; }
 #login form {margin: 20pt;}
 #login .field {display: inline-block; width: 100px;}
 #login_button {margin-left: 105px;}
+li#video {display: inline-block;}
+.booklist-musiclist-aerialview ul li{list-style-type: none;}
+.booklist-musiclist-aerialview {padding: 10pt;}

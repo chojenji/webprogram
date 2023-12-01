@@ -1,6 +1,6 @@
 #logo {font-size: 30pt;}
 div footer #copyright {font-size:10pt;font-family:'Courier New', Courier, monospace;}
-.booklist {width: 90%; height: 90%;}
+.booklist {width: 100%; height: 100%;}
 .booklist ul li {width: 90%; height: 90%;font-size: 9pt;}
 .booklist ul li img {width: 100px; height: 120px;}
 #order table {width: 90%; height: auto;}
