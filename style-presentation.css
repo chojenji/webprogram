@@ -1,0 +1,12 @@
+#main-menu {background-color: aqua;}
+.bookbackground {background-image : url('images/cloud.jpg'); width: auto;height: auto;overflow: hidden;}
+.booklist {width: auto;height: auto;border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
+.head {font-weight: bold;}
+body#order {background-color: rgb(203, 205, 205);}
+#order table {border:1px solid rgb(139, 139, 139); border-collapse: collapse; margin-top: 5pt;}
+#order table th {border:1px solid rgb(139, 139, 139); padding: 5pt;}
+#order table td {border:1px solid rgb(139, 139, 139); padding: 5pt;}
+#order table tr {border:1px solid rgb(139, 139, 139); padding: 5pt;}
+#order input {background-color: #ffffff00;color: blue;border-color: rgb(139, 139, 139);border-style: solid;}
+body#signup {background-color: rgb(203, 205, 205);}
+body#login {background-color: rgb(203, 205, 205);}

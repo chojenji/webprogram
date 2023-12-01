@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Order Page </title>
+<link rel="stylesheet" type="text/css" href="style-size.css"/>
+<link rel="stylesheet" type="text/css" href="style-layout.css"/>
+<link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+</head>
+<body id="order">
+<script type="text/javascript">
+    function calc()
+    {
+        num1 = document.getElementById("book1num").value;
+        price1 = document.getElementById("book1price").value = num1 * 27000;
+        num2 = document.getElementById("book2num").value;
+        price2 = document.getElementById("book2price").value = num2 * 21000;
+        num3 = document.getElementById("book3num").value;
+        price3 = document.getElementById("book3price").value = num3 * 28000;
+
+        sumnum = document.getElementById("calcnum").value = parseInt(num1) + parseInt(num2) + parseInt(num3);
+        sumprice = document.getElementById("calcprice").value = price1 + price2 + price3;
+    }
+    function clear(){
+        num1 = document.getElementById("book1num").value ="0";
+        price1 = document.getElementById("book1price").value ="0";
+        num2 = document.getElementById("book2num").value ="0";
+        price2 = document.getElementById("book2price").value ="0";
+        num3 = document.getElementById("book3num").value ="0";
+        price3 = document.getElementById("book3price").value ="0";
+    }
+    function order(event){
+        event.preventDefault();
+        // 주문 정보를 담을 테이블을 생성
+        var orderTable = "<table border='1'><tr><th>책 제목</th><th>가격</th><th>수량</th><th>합계</th></tr>";
+        var totalSum = 0;
+        var bookTitles = ["컴퓨터와 IT기술의 이해 [개정판-2판]", "소셜미디어의 이해와 활용", "비즈니스 정보 시스템"];
+        var bookPrices = [27000, 21000, 28000];
+        var bookNums = ["book1num", "book2num", "book3num"];
+        var bookPricesIds = ["book1price", "book2price", "book3price"];
+
+        // 각 책에 대한 정보를 테이블에 추가
+        for (var i = 0; i < bookTitles.length; i++) {
+            var num = document.getElementById(bookNums[i]).value;
+            var price = document.getElementById(bookPricesIds[i]).value;
+            if (num > 0) { // 수량이 0이 아닌 책만 표시
+                orderTable += "<tr><td>" + bookTitles[i] + "</td><td>" + bookPrices[i].toLocaleString() + "원</td><td>" + num + "</td><td>" + price.toLocaleString() + "원</td></tr>";
+                totalSum += parseInt(price);
+            }
+        }
+        orderTable += "<tr><td>총합계</td><td colspan='3'>" + totalSum.toLocaleString() + "원</td></tr></table>";
+
+        // 생성된 테이블을 페이지에 추가
+        var orderDiv = document.createElement("div");
+        orderDiv.innerHTML = orderTable;
+        document.body.appendChild(orderDiv);
+    }
+</script>
+<div class="head"> 서적 주문 양식 </div>
+<form action="">
+    <p> 주문서 </p>
+    <table>
+        <tr> <th> 책 제목 </th> <th> 가격 </th> <th> 수량 </th> <th> 합계 </th> </tr>
+        <tr>
+            <td> 컴퓨터와 IT기술의 이해 <br/>[개정판-2판] </td> <td> 27,000원 </td>
+            <td> <input id="book1num" type="text" size= "2" value="0" onchange="calc();"/> </td>
+            <td> <input id="book1price" type="text" size= "6" value="0"/> 원</td>
+        </tr>
+        <tr>
+            <td> 소셜미디어의 이해와 <br/>활용 <td> 21,000원 </td>
+            <td> <input id="book2num" type="text" size= "2" value="0" onchange="calc();"/> </td>
+            <td> <input id="book2price" type="text" size= "6" value="0"/> 원</td>
+        </tr>
+        <tr>
+            <td> 비즈니스 정보 시스템 </td> <td> 28,000원 </td>
+            <td> <input id="book3num" type="text" size= "2" value="0" onchange="calc();"/> </td>
+            <td> <input id="book3price" type="text" size= "6" value="0"/> 원</td>
+        </tr>
+        <tr>
+            <td> 합계 </td> <td> &nbsp; </td>
+            <td> <input id="calcnum" type="text" size= "2" value="0" onchange="calc();"/> </td>
+            <td> <input id="calcprice" type="text" size= "6" value="0"/> 원</td>
+        </tr>
+    </table> <br />
+    <input type="button" value="합계계산" onclick="calc();" enabled/>
+    <input type="reset" value="초기화" onclick="clear();" enabled/>
+    <input type="submit" value="주문하기" onclick="order(event);"/>
+</form>
+</body>
+</html>

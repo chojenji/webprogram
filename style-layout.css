@@ -1,0 +1,22 @@
+.wrap {margin: 0 auto;}
+.right {position: absolute;right: 0%;}
+#main-menu {list-style: none;}
+#main-menu li { display: inline; padding-right: 10pt;}
+div#content article {float: left;}
+div#content aside {float: right; }
+.clearfix::after {content: ""; clear: both; display: table;}
+footer {margin-top: 10pt;}
+div footer #copyright { float: left;padding-top: 5pt;}
+div footer #SNS {float:right; }
+.booklist {padding:10pt;}
+.booklist ul {display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    list-style-type: none; padding-top: 0%;gap: 10px;}
+.booklist ul li {padding-bottom: 10pt;}
+#order {margin: 20pt;}
+#order table td {text-align: center;vertical-align: middle}
+#order table th {text-align: center;vertical-align: middle}
+#order table tr {text-align: center;vertical-align: middle}
+#login form {margin: 20pt;}
+#login .field {display: inline-block; width: 100px;}
+#login_button {margin-left: 105px;}
