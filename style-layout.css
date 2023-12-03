@@ -13,6 +13,10 @@ div footer #SNS {float:right; }
     grid-template-columns: repeat(3, 1fr); 
     list-style-type: none; padding-top: 0%;gap: 10px;}
 .booklist ul li {padding-bottom: 10pt;}
+.booklist_all {padding:10pt;}
+.booklist_all ul {display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    list-style-type: none; padding-top: 0%;gap: 10px;}
 #order {margin: 20pt;}
 #order table td {text-align: center;vertical-align: middle}
 #order table th {text-align: center;vertical-align: middle}
@@ -23,3 +27,7 @@ div footer #SNS {float:right; }
 li#video {display: inline-block;}
 .booklist-musiclist-aerialview ul li{list-style-type: none;}
 .booklist-musiclist-aerialview {padding: 10pt;}
+.recommand_books {padding:10pt;}
+.recommand_books ul{display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    list-style-type: none; padding-top: 0%;gap: 10px;}

@@ -24,6 +24,18 @@
             document.getElementById("display").innerHTML = "위치 : 일시 "+parseDate+", 위도 :"
                                                             +latitude + ", 경도 :"+longitude;
         }
+        function BestSeller(){
+            var iframe = document.getElementsByName('display_area')[0];
+            iframe.src = 'best_books.html';
+        }
+        function RecommendBooks(){
+            var iframe = document.getElementsByName('display_area')[0];
+            iframe.src = 'recommand_books.html';
+        }
+        function ALLBooks(){
+            var iframe = document.getElementsByName('display_area')[0];
+            iframe.src = 'all_books.html';
+        }
     </script>
 <div class="wrap">
 <header>
@@ -51,9 +63,9 @@
 </article>
 
 <aside class="right">
-    <button id="all" style="width:85px" disabled>전체</button><br/>
-    <button id="best" style="width:85px" disabled>베스트셀러</button><br/>
-    <button id="recommend" style="width:85px" disabled>추천도서</button><br/>
+    <button id="all" style="width:85px" onclick="ALLBooks();">전체</button><br/>
+    <button id="best" style="width:85px" onclick="BestSeller();">베스트셀러</button><br/>
+    <button id="recommend" style="width:85px" onclick="RecommendBooks();">추천도서</button><br/>
     <button id="location" style="width:85px" onclick="getMyLocation();">현재위치</button>
 </aside>
 </div>

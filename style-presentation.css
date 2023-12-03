@@ -1,6 +1,7 @@
 #main-menu {background-color: aqua;}
 .bookbackground {background-image : url('images/cloud.jpg'); width: auto;height: auto;overflow: hidden;}
-.booklist {margin-left:10pt; width: 90%; height: 450px; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
+.bookbackground_all {background-image : url('images/cloud.jpg'); width: auto;height: auto;}
+.booklist{margin-left:10pt; width: 90%; height: 450px; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
 .booklist-musiclist-aerialview {margin-left:10pt; width: 90%; height: 450px; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
 .head {font-weight: bold;}
 body#order {background-color: rgb(203, 205, 205);}
@@ -12,3 +13,5 @@ body#order {background-color: rgb(203, 205, 205);}
 body#signup {background-color: rgb(203, 205, 205);}
 body#login {background-color: rgb(203, 205, 205);}
 #musicbackground {background-image : url('images/aerialview.jpg'); width: auto;height: auto}
+.recommand_books {margin-left:10pt; width: 90%; height: 450px; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
+.booklist_all {margin-left:10pt; width: 90%; height: auto; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
