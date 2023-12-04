@@ -6,6 +6,36 @@
 <link rel="stylesheet" type="text/css" href="style-size.css"/>
 <link rel="stylesheet" type="text/css" href="style-layout.css"/>
 <link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+<script type="text/javascript">
+  window.onload = function(){
+    var myvideo = document.getElementById("myvideo"),
+    playbtn = document.getElementById("playbtn"),
+    volumeCtrl = document.getElementById("volctrl"),
+    timeDiv = document.getElementById("timeDiv");
+
+    playbtn.addEventListener("click", play);
+    myvideo.addEventListener("canplay", function(){alert("재생 가능합니다.")});
+    //myvideo.addEventListener("timeupdate", updateTime);
+    volumeCtrl.addEventListener("change", updateVolume);
+  }
+  function play(){
+    if(myvideo.paused){
+      playbtn.innerHTML = "일시정지"; 
+      myvideo.play();
+    }else{
+      playbtn.innerHTML = "재생";
+      myvideo.pause();
+    }
+  }
+  function updateTime(){
+    timeDiv.innerHTML = "재생시간/총시간 " + Math.floor(myvideo.currentTime) + "/" 
+    + Math.floor(myvideo.duration) + "(초)";
+  }
+  function updateVolume(){
+    myvideo.volume = volumeCtrl.value;
+  }
+
+</script>
 </head>
 <body class="booklist-musiclist-aerialview">
   <div class="head">음반/DVD</div>
@@ -23,9 +53,13 @@
     <li id="video">
       <img height="150"
            src="https://i.namu.wiki/i/mFnTzEZ0JRBjiyff5KNRYtRFNQSfZq2EJpRZjw5pC-9q_tklYY8EFrNCzhZI5kbD8EiiJNW_u6WtDBSJQ9PfhXvdFap8aZvKDshRvaJPoE5v7w7skTzdFTJPZEv67mpcI7dsN02obJrFffoTUm3gqg.webp"/>
-      <video width="300" height="150" src="http://media.w3.org/2010/05/sintel/trailer.mp4" controls>
+      <video id="myvideo" width="300" height="150" src="http://media.w3.org/2010/05/sintel/trailer.mp4" controls
+              ontimeupdate="updateTime();">
         Your browser does not support the video tag.
-      </video>
+      </video><br>
+      <button id="playbtn">재생</button> &nbsp;
+      <span id="timeDiv"></span><br>
+      볼륨:&nbsp;<input id="volctrl" type="range" max="1" step="any">
     </li>
   </ul>
 </body>

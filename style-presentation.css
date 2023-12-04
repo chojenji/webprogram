@@ -1,3 +1,4 @@
+html a {text-decoration: none;}
 #main-menu {background-color: aqua;}
 .bookbackground {background-image : url('images/cloud.jpg'); width: auto;height: auto;overflow: hidden;}
 .bookbackground_all {background-image : url('images/cloud.jpg'); width: auto;height: auto;}
