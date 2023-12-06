@@ -16,3 +16,4 @@ body#login {background-color: rgb(203, 205, 205);}
 #musicbackground {background-image : url('images/aerialview.jpg'); width: auto;height: auto}
 .recommand_books {margin-left:10pt; width: 90%; height: 450px; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
 .booklist_all {margin-left:10pt; width: 90%; height: auto; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}
+#video {color: white;}

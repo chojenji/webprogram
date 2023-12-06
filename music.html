@@ -16,9 +16,12 @@
     playbtn.addEventListener("click", play);
     myvideo.addEventListener("canplay", function(){alert("재생 가능합니다.")});
     //myvideo.addEventListener("timeupdate", updateTime);
-    volumeCtrl.addEventListener("change", updateVolume);
+    //volumeCtrl.addEventListener("change", updateVolume);
   }
   function play(){
+    var myvideo = document.getElementById("myvideo");
+    var playbtn = document.getElementById("playbtn");
+
     if(myvideo.paused){
       playbtn.innerHTML = "일시정지"; 
       myvideo.play();
@@ -28,10 +31,16 @@
     }
   }
   function updateTime(){
-    timeDiv.innerHTML = "재생시간/총시간 " + Math.floor(myvideo.currentTime) + "/" 
-    + Math.floor(myvideo.duration) + "(초)";
+    var myvideo = document.getElementById("myvideo")
+    var timeDiv = document.getElementById("timeDiv");
+
+    timeDiv.innerHTML = "재생시간/총시간 " + Math.floor(myvideo.currentTime/60) + ":"+
+    Math.floor(myvideo.currentTime%60)+"/" 
+    + Math.floor(myvideo.currentTime/60) + ":"+Math.floor(myvideo.duration) + "(초)";
   }
   function updateVolume(){
+    var myvideo = document.getElementById("myvideo")
+    var volumeCtrl = document.getElementById("volctrl");
     myvideo.volume = volumeCtrl.value;
   }
 
@@ -59,7 +68,7 @@
       </video><br>
       <button id="playbtn">재생</button> &nbsp;
       <span id="timeDiv"></span><br>
-      볼륨:&nbsp;<input id="volctrl" type="range" max="1" step="any">
+      볼륨:&nbsp;<input id="volctrl" type="range" max="1" step="any" onchange="updateVolume();">
     </li>
   </ul>
 </body>
