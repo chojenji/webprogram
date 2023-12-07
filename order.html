@@ -31,29 +31,42 @@
     }
     function order(event){
         event.preventDefault();
+
+        var username = localStorage.getItem('username'); // localStorage에서 username 가져오기
+        var orderMessage = username ? username + "의 주문 내역입니다." : ""; // username이 있으면 사용, 없으면 기본 메시지
+
         // 주문 정보를 담을 테이블을 생성
         var orderTable = "<table border='1'><tr><th>책 제목</th><th>가격</th><th>수량</th><th>합계</th></tr>";
+        var totalQuantity = 0; // 전체 수량을 저장할 변수
         var totalSum = 0;
+
         var bookTitles = ["컴퓨터와 IT기술의 이해 [개정판-2판]", "소셜미디어의 이해와 활용", "비즈니스 정보 시스템"];
         var bookPrices = [27000, 21000, 28000];
         var bookNums = ["book1num", "book2num", "book3num"];
         var bookPricesIds = ["book1price", "book2price", "book3price"];
 
+        if (username) {
+        orderTable += "<caption>" + orderMessage + "</caption>"; // 사용자 이름이 있는 경우, 캡션 추가
+        }
         // 각 책에 대한 정보를 테이블에 추가
         for (var i = 0; i < bookTitles.length; i++) {
             var num = document.getElementById(bookNums[i]).value;
             var price = document.getElementById(bookPricesIds[i]).value;
             if (num > 0) { // 수량이 0이 아닌 책만 표시
+                totalQuantity += parseInt(num); // 수량 추가
                 orderTable += "<tr><td>" + bookTitles[i] + "</td><td>" + bookPrices[i].toLocaleString() + "원</td><td>" + num + "</td><td>" + price.toLocaleString() + "원</td></tr>";
                 totalSum += parseInt(price);
             }
         }
-        orderTable += "<tr><td>총합계</td><td colspan='3'>" + totalSum.toLocaleString() + "원</td></tr></table>";
-
         // 생성된 테이블을 페이지에 추가
-        var orderDiv = document.createElement("div");
-        orderDiv.innerHTML = orderTable;
-        document.body.appendChild(orderDiv);
+        if (totalQuantity > 0) { // 총 수량이 0보다 큰 경우에만 테이블을 추가
+            orderTable += "<tr><td>총합계</td><td colspan='3'>" + totalSum.toLocaleString() + "원</td></tr></table>";
+            var orderDiv = document.createElement("div");
+            orderDiv.innerHTML = orderTable;
+            document.body.appendChild(orderDiv);
+        } else {
+            alert("주문할 책을 선택해주세요."); // 책이 선택되지 않았을 경우 경고 메시지 출력
+        }
     }
 </script>
 <div class="head"> 서적 주문 양식 </div>
@@ -82,7 +95,6 @@
             <td> <input id="calcprice" type="text" size= "6" value="0"/> 원</td>
         </tr>
     </table> <br />
-    <input type="button" value="합계계산" onclick="calc();" enabled/>
     <input type="reset" value="초기화" onclick="clear();" enabled/>
     <input type="submit" value="주문하기" onclick="order(event);"/>
 </form>

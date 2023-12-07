@@ -1,6 +1,6 @@
 .wrap {margin: 0 auto;}
 .right {position: absolute;right: 0%;}
-#main-menu {list-style: none;}
+#main-menu {list-style: none; padding-top: 15px;padding-bottom: 15px; margin-top: 10px;margin-bottom: 10px;}
 #main-menu li { display: inline; padding-right: 10pt;}
 div#content article {float: left;}
 div#content aside {float: right; }

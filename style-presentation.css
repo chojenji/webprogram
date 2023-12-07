@@ -1,5 +1,6 @@
 html a {text-decoration: none;}
 #main-menu {background-color: aqua;}
+#main-menu li {color: black; font-weight: bold;}
 .bookbackground {background-image : url('images/cloud.jpg'); width: auto;height: auto;overflow: hidden;}
 .bookbackground_all {background-image : url('images/cloud.jpg'); width: auto;height: auto;}
 .booklist{margin-left:10pt; width: 90%; height: 450px; border-color: rgb(127, 200, 255);border-radius: 2%;border-style: solid;border-width: medium;}

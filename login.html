@@ -6,6 +6,24 @@
 <link rel="stylesheet" type="text/css" href="style-size.css"/>
 <link rel="stylesheet" type="text/css" href="style-layout.css"/>
 <link rel="stylesheet" type="text/css" href="style-presentation.css"/>
+<script>
+  function saveLoginDetails() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+  
+      if(username && password) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        alert(username + "님 로그인 되었습니다.");
+      } else if (!username) {
+        alert("아이디가 입력되지 않았습니다.");
+      } else if(!password){
+        alert("비밀번호가 입력되지 않았습니다.")
+      }else{
+        alert("아이디와 비밀번호 모두 입력되지 않았습니다.")
+      }
+  }
+</script>
 </head>
 <body id="login">
     <form>    
@@ -17,7 +35,7 @@
         <span class="field">비밀번호</span>
         <input id="password" type="password"><br/>
         <span></span>
-        <input id="login_button" type="submit" value="로그인" disabled/>
+        <input id="login_button" type="submit" value="로그인" onclick="saveLoginDetails();"/>
         <input id="reset" type="button" value="취소" disabled/>
       </fieldset>
     </form> 
